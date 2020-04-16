@@ -1,44 +1,29 @@
 <template>
   <div id="app">
 
-    <div class="form-group">
-      <label for="lotSize">Parking Lot Capacity: </label>
-      <el-input name="lotSize" v-model.number="N" :min="1"></el-input>
-    </div>
+    <MainForm/>
+    <ParkedCarsList v-if="parkedCars.length"/>
 
-    <div class="form-group">
-      <label for="lotSize">Initial number of cars: </label>
-      <el-input name="lotSize" v-model.number="m" :min="0"></el-input>
-    </div>
   </div>
 </template>
 
 <script>
+import MainForm from '@/components/mainForm.vue';
+import ParkedCarsList from '@/components/parkedCarsList.vue';
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
   components: {
+    MainForm,
+    ParkedCarsList,
   },
-  data() {
-    return {
-      N: 1,
-      m: 0,
-    };
-  },
-  methods: {
-  },
+  computed: mapState(['parkedCars']),
 };
 </script>
 
 <style scoped>
 #app{
   margin: 20px;
-}
-.el-input{
-  width: 120px;
-}
-.form-group{
-  display: inline-block;
-  margin: 0 10px;
 }
 </style>
