@@ -2,7 +2,7 @@
 
     <el-form :inline="true" :model="form" label-width="auto">
 
-      <el-form-item label="Parking Lot Capacity:">
+      <el-form-item label="Total number of parking spaces:">
         <el-input-number v-model.number="form.lotSize" ></el-input-number>
       </el-form-item>
 

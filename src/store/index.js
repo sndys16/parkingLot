@@ -15,6 +15,10 @@ export default new Vuex.Store({
       state.carsCount = carsCount;
       state.parkedCars = parkedCars;
     },
+    REMOVE_PARKED_CAR(state, slot) {
+      console.log('here too');
+      state.parkedCars = state.parkedCars.filter((parkedCar) => parkedCar.slot !== slot);
+    },
   },
   actions: {
     initialSetUp({ commit }, { lotSize, carsCount }) {
@@ -40,6 +44,9 @@ export default new Vuex.Store({
         parkedCars.push(parkedCar);
       }
       commit('SET_UP_INITIAL_LIST', { lotSize, carsCount, parkedCars });
+    },
+    removeParkedCar({ commit }, slot) {
+      commit('REMOVE_PARKED_CAR', slot);
     },
   },
   modules: {
