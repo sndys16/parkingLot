@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <div class="form-group">
+      <label for="lotSize">Parking Lot Capacity: </label>
+      <el-input name="lotSize" v-model.number="N" :min="1"></el-input>
+    </div>
+
+    <div class="form-group">
+      <label for="lotSize">Initial number of cars: </label>
+      <el-input name="lotSize" v-model.number="m" :min="0"></el-input>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+  },
+  data() {
+    return {
+      N: 1,
+      m: 0,
+    };
+  },
+  methods: {
   },
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+#app{
+  margin: 20px;
+}
+.el-input{
+  width: 120px;
+}
+.form-group{
+  display: inline-block;
+  margin: 0 10px;
 }
 </style>
