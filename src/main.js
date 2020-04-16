@@ -7,6 +7,9 @@ import {
   InputNumber,
   Table,
   TableColumn,
+  Dialog,
+  Select,
+  Option,
 } from 'element-ui';
 import App from './App.vue';
 import store from './store';
@@ -19,6 +22,9 @@ Vue.use(InputNumber);
 Vue.use(Button);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Dialog);
+Vue.use(Select);
+Vue.use(Option);
 
 new Vue({
   store,
