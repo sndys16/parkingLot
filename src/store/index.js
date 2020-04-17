@@ -21,9 +21,11 @@ export default new Vuex.Store({
     REMOVE_PARKED_CAR(state, slot) {
       state.parkedCars = state.parkedCars.filter((parkedCar) => parkedCar.slot !== slot);
       state.isFull = false;
+      state.carsCount -= 1;
     },
     PARK_NEW_CAR(state, car) {
       state.parkedCars.push(car);
+      state.carsCount += 1;
       if (state.lotSize === state.parkedCars.length) state.isFull = true;
     },
   },

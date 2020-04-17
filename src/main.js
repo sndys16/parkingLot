@@ -10,6 +10,7 @@ import {
   Dialog,
   Select,
   Option,
+  Tooltip,
 } from 'element-ui';
 import App from './App.vue';
 import store from './store';
@@ -25,6 +26,7 @@ Vue.use(TableColumn);
 Vue.use(Dialog);
 Vue.use(Select);
 Vue.use(Option);
+Vue.use(Tooltip);
 
 new Vue({
   store,

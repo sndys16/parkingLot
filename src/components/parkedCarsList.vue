@@ -1,5 +1,7 @@
 <template>
     <div>
+        <p> Parking Lot Size: {{lotSize}}</p>
+        <p> Currently parked cars: {{carsCount}}</p>
         <div>
             <h3>List of parked cars :</h3>
             <AddNewCar/>
@@ -51,7 +53,7 @@ export default {
       border: true,
     };
   },
-  computed: mapState(['parkedCars']),
+  computed: mapState(['parkedCars', 'lotSize', 'carsCount']),
   methods: {
     handleDelete(row) {
       this.removeParkedCar(row.slot);
@@ -61,8 +63,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 h3 {
+  display: inline-block;
+}
+p {
+  margin-left: 50px;
+  font-size: 24px;
   display: inline-block;
 }
 </style>

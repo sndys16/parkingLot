@@ -1,8 +1,22 @@
 <template>
     <div class="newCarDialog">
-        <el-button type="text" @click="dialogFormVisible = true" id="dialogButton">
-            + Add new car to the parking lot</el-button>
-
+        <el-tooltip content="Top center" placement="top">
+            <el-button
+                v-if="isFull"
+                type="primary"
+                disabled
+                title="The parking lot is full"
+                class="dialogButton">
+                    + Add new car
+            </el-button>
+        </el-tooltip>
+        <el-button
+            v-if="!isFull"
+            type="primary"
+            @click="dialogFormVisible = true"
+            class="dialogButton">
+                + Add new car
+        </el-button>
         <el-dialog title="Enter details of the car" :visible.sync="dialogFormVisible">
             <el-form :model="form">
                 <el-form-item label="Vehicle Registration Number" :label-width="formLabelWidth">
@@ -17,7 +31,12 @@
             </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogFormVisible = false">Cancel</el-button>
-                <el-button type="primary" @click="addNewCar">Confirm</el-button>
+                <el-button
+                    type="primary"
+                    :disabled="disabled"
+                    @click="addNewCar">
+                        Confirm
+                </el-button>
             </span>
         </el-dialog>
     </div>
@@ -49,7 +68,10 @@ export default {
     },
   },
   computed: {
-    ...mapState(['colors']),
+    ...mapState(['colors', 'isFull']),
+    disabled() {
+      return !(this.form.regNo && this.form.color);
+    },
   },
 };
 </script>
@@ -58,9 +80,10 @@ export default {
 .newCarDialog {
     display: inline-block;
 }
-#dialogButton {
-    height: 44px;
-    font-size: 24px;
+.dialogButton {
+    height: 41px;
+    font-size: 16px;
     margin-left: 20px;
+    vertical-align: text-bottom;
 }
 </style>
