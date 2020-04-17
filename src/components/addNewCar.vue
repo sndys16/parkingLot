@@ -79,11 +79,14 @@ export default {
 <style scoped>
 .newCarDialog {
     display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 0;
 }
 .dialogButton {
     height: 41px;
     font-size: 16px;
-    margin-left: 20px;
     vertical-align: text-bottom;
 }
 </style>

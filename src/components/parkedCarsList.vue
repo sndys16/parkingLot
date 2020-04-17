@@ -1,9 +1,13 @@
 <template>
     <div>
-        <p> Parking Lot Size: {{lotSize}}</p>
-        <p> Currently parked cars: {{carsCount}}</p>
-        <div>
-            <h3>List of parked cars :</h3>
+
+        <div class="info">
+          <p> Parking Lot Size: {{lotSize}}</p>
+          <p> Currently parked cars: {{carsCount}}</p>
+        </div>
+
+        <div class="header">
+            <h5>List of parked cars :</h5>
             <AddNewCar/>
         </div>
 
@@ -108,12 +112,22 @@ export default {
 </script>
 
 <style scoped>
-h3 {
+h5 {
   display: inline-block;
 }
 p {
   margin-left: 50px;
   font-size: 24px;
   display: inline-block;
+}
+.info {
+  width: fit-content;
+  margin: auto;
+}
+.el-table {
+  margin: auto;
+}
+.header {
+  display: flex;
 }
 </style>
