@@ -1,8 +1,8 @@
 <template>
 
-    <el-form :inline="true" :model="form" label-width="auto" :rules="rules">
+    <el-form :inline="true" :model="form" label-width="auto">
 
-      <el-form-item label="Total number of parking spaces:" prop="parkingLotSize">
+      <el-form-item label="Total number of parking spaces:">
         <el-input v-model.number="form.lotSize" ></el-input>
       </el-form-item>
 
@@ -30,12 +30,6 @@ export default {
   data() {
     return {
       form: this.newSetUp(),
-      rules: {
-        parkingLotSize: [
-          { required: true, message: 'Please eneter the total number of parking spaces' },
-          { type: 'number', message: 'Please eneter a valid number' },
-        ],
-      },
     };
   },
   methods: {
@@ -55,7 +49,7 @@ export default {
     disabled() {
       return !((this.form.lotSize > 0)
       && (this.form.carsCount > 0)
-      && (this.form.lotSize > this.form.carsCount));
+      && (this.form.lotSize >= this.form.carsCount));
     },
   },
 };
