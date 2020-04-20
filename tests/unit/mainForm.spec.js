@@ -27,19 +27,16 @@ const getMainFormWrapper = () => {
   return wrapper;
 };
 
-describe('App.vue', () => {
+describe('MainForm.vue', () => {
   const wrapper = getMainFormWrapper();
 
   it('is a Vue instance', () => {
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 
-  it('renders a form', () => {
+  it('renders a form with 3 form elements', () => {
     expect(wrapper.find('form.el-form').exists()).toBe(true);
-  });
-
-  it('renders 3 form items', () => {
-    // console.log(wrapper.findAll('div.el-form-item'));
     expect(wrapper.findAll('div.el-form-item').length).toBe(3);
   });
+
 });
