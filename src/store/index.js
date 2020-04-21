@@ -24,7 +24,7 @@ export default new Vuex.Store({
       state.carsCount -= 1;
     },
     PARK_NEW_CAR(state, car) {
-      state.parkedCars.push(car);
+      state.parkedCars.splice(car.slot - 1, 0, car);
       state.carsCount += 1;
       if (state.lotSize === state.parkedCars.length) state.isFull = true;
     },
